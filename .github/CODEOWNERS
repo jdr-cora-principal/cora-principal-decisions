@@ -1,0 +1,5 @@
+  ### .github/CODEOWNERS
+
+  # Every change requires review from the independent project
+  principal.
+  * @jdr-cora-principal
