@@ -119,21 +119,29 @@
           "type": "object",
           "required": [
             "evaluation_mode",
-            "corpus_id",
             "candidate_head",
+            "corpus_id",
+            "base_head",
             "request_path",
+            "manifest_path",
+            "projection_path",
+            "receipt_path",
             "authorization_id",
             "dispatch_nonce",
             "jit_runner_label"
           ],
           "properties": {
             "evaluation_mode": {"const": "distdet_validator_execution"},
-            "corpus_id": {"const": "EAT-RECONSIDERATION-PREFLIGHT0.ACTIVATION.v5"},
             "candidate_head": {"$ref": "#/$defs/gitCommit"},
+            "corpus_id": {"const": "EAT-RECONSIDERATION-PREFLIGHT0.ACTIVATION.v5"},
+            "base_head": {"const": ""},
             "request_path": {"type": "string", "pattern": "^\\.codex/exchange/eat/requests/[A-Za-z0-9._-]+\\.md$"},
+            "manifest_path": {"const": ""},
+            "projection_path": {"const": ""},
+            "receipt_path": {"const": ""},
             "authorization_id": {"$ref": "#/$defs/safeId"},
             "dispatch_nonce": {"$ref": "#/$defs/nonce"},
-            "jit_runner_label": {"type": "string", "pattern": "^eat-distdet-[0-9a-f]{16,64}$"}
+            "jit_runner_label": {"type": "string", "pattern": "^eat-distdet-[0-9a-f]{64}$"}
           },
           "additionalProperties": false
         },
@@ -229,7 +237,7 @@
           "properties": {
             "repository_runner_id": {"type": "integer", "minimum": 1},
             "name": {"type": "string", "minLength": 1},
-            "jit_label": {"type": "string", "pattern": "^eat-distdet-[0-9a-f]{16,64}$"},
+            "jit_label": {"type": "string", "pattern": "^eat-distdet-[0-9a-f]{64}$"},
             "required_labels": {
               "type": "array",
               "minItems": 5,
