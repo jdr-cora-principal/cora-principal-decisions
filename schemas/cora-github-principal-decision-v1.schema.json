@@ -1,0 +1,46 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "cora.github_principal_decision.v1",
+  "type": "object",
+  "required": ["schema", "decision_id", "principal", "scope", "issued_status", "evidence_subject", "evidence_digest", "created_at", "supersedes", "predecessor"],
+  "properties": {
+    "schema": {"const": "cora.github_principal_decision.v1"},
+    "decision_id": {"type": "string", "minLength": 1},
+    "principal": {
+      "type": "object",
+      "required": ["github_login", "github_user_id"],
+      "properties": {
+        "github_login": {"const": "jdr-cora-principal"},
+        "github_user_id": {"const": 302294632}
+      },
+      "additionalProperties": false
+    },
+    "scope": {
+      "type": "object",
+      "required": ["gate_id"],
+      "properties": {"gate_id": {"type": "string", "minLength": 1}},
+      "additionalProperties": false
+    },
+    "issued_status": {"enum": ["granted", "denied"]},
+    "evidence_subject": {"const": "cora_sma_control_plane_review_bundle_v1"},
+    "evidence_digest": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+    "created_at": {"type": "string", "format": "date-time"},
+    "supersedes": {"type": "array", "maxItems": 1, "uniqueItems": true, "items": {"type": "string", "minLength": 1}},
+    "predecessor": {
+      "oneOf": [
+        {"type": "null"},
+        {
+          "type": "object",
+          "required": ["decision_id", "record_sha256", "merge_commit"],
+          "properties": {
+            "decision_id": {"type": "string", "minLength": 1},
+            "record_sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+            "merge_commit": {"type": "string", "pattern": "^[0-9a-f]{40}$"}
+          },
+          "additionalProperties": false
+        }
+      ]
+    }
+  },
+  "additionalProperties": false
+}
