@@ -36,6 +36,9 @@ tokens.
   never edited, renamed, or deleted.
 - A successor is a new record that names exactly one predecessor and binds the
   predecessor's record digest and merge commit.
+- A denied execution decision is terminal. No granted or denied successor may
+  name it as a predecessor or supersede it; any later proposal must use a new
+  authorization ID and a separately reviewed execution history.
 - Control-plane and execution histories are enumerated separately.
 - Missing, denied, expired, stale, superseded, forked, ambiguous, truncated,
   or unverifiable history never grants authority.

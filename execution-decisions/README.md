@@ -44,6 +44,13 @@ expired, stale, superseded, ambiguous, or unverifiable record grants nothing.
 The record cannot replace the EAT decision it cites, accept the held payload,
 or clear any EAT hold.
 
+A `denied` execution decision is terminal for its authorization-history chain.
+No later execution record may name a denied record as its predecessor or list
+the denied decision ID in `supersedes`, regardless of whether the later record
+is `granted` or `denied`. A purported successor to a denial makes that history
+invalid and grants nothing. Any later execution proposal must use a distinct
+authorization ID and begin a separately reviewed history.
+
 Authority also requires independent live verification of the principal login
 and numeric ID, repository ID, protected default-branch head, ruleset,
 CODEOWNERS, exact PR head, principal review, merge, record blob, append-only
