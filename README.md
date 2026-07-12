@@ -43,6 +43,13 @@ tokens.
   principal.
 - A principal execution record does not replace the independently required EAT
   conditional decision. Both are required for a protected execution.
+- A principal execution record selects the reviewed content-addressed runner
+  image and an exact offline JIT runner ID/name/nonce-derived label. It cannot
+  bind self-reported per-run boot evidence, because boot occurs only after the
+  principal record is merged and independently verified.
+- The JIT configuration, short-lived capability key, and narrowly scoped API
+  credential are never committed. The owner mounts them into the selected
+  disposable runner only after the principal grant is current.
 
 No record in this repository accepts a payload, clears an EAT hold, promotes a
 semantic object, authorizes model use, or accepts a scientific claim unless a

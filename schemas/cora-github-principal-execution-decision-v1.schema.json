@@ -211,12 +211,11 @@
       "properties": {
         "runner_image": {
           "type": "object",
-          "required": ["identity", "provenance_sha256", "sbom_sha256", "boot_evidence_sha256"],
+          "required": ["identity", "provenance_sha256", "sbom_sha256"],
           "properties": {
             "identity": {"type": "string", "pattern": "^sha256:[0-9a-f]{64}$"},
             "provenance_sha256": {"$ref": "#/$defs/sha256"},
-            "sbom_sha256": {"$ref": "#/$defs/sha256"},
-            "boot_evidence_sha256": {"$ref": "#/$defs/sha256"}
+            "sbom_sha256": {"$ref": "#/$defs/sha256"}
           },
           "additionalProperties": false
         },
@@ -225,8 +224,8 @@
           "type": "object",
           "required": ["kind", "identifier", "principal_selection_required"],
           "properties": {
-            "kind": {"enum": ["github_environment", "principal_repository_execution_decision"]},
-            "identifier": {"type": "string", "minLength": 1},
+            "kind": {"const": "principal_repository_execution_decision"},
+            "identifier": {"const": "jdr-cora-principal/cora-principal-decisions:execution-decisions"},
             "principal_selection_required": {"const": true}
           },
           "additionalProperties": false
@@ -236,13 +235,25 @@
           "required": ["repository_runner_id", "name", "jit_label", "required_labels"],
           "properties": {
             "repository_runner_id": {"type": "integer", "minimum": 1},
-            "name": {"type": "string", "minLength": 1},
+            "name": {"type": "string", "pattern": "^eat-distdet-runner-[0-9a-f]{64}$"},
             "jit_label": {"type": "string", "pattern": "^eat-distdet-[0-9a-f]{64}$"},
             "required_labels": {
               "type": "array",
               "minItems": 5,
+              "maxItems": 5,
               "uniqueItems": true,
-              "items": {"type": "string", "minLength": 1}
+              "items": {"type": "string", "minLength": 1},
+              "allOf": [
+                {"contains": {"const": "self-hosted"}, "minContains": 1, "maxContains": 1},
+                {"contains": {"const": "linux"}, "minContains": 1, "maxContains": 1},
+                {"contains": {"const": "x64"}, "minContains": 1, "maxContains": 1},
+                {"contains": {"const": "eat-preflight-v1"}, "minContains": 1, "maxContains": 1},
+                {
+                  "contains": {"type": "string", "pattern": "^eat-distdet-[0-9a-f]{64}$"},
+                  "minContains": 1,
+                  "maxContains": 1
+                }
+              ]
             }
           },
           "additionalProperties": false
@@ -258,13 +269,14 @@
         },
         "cleanup_authority": {
           "type": "object",
-          "required": ["token_subject_sha256", "permissions"],
+          "required": ["token_subject_sha256", "capability_transport", "permissions"],
           "properties": {
             "token_subject_sha256": {"$ref": "#/$defs/sha256"},
+            "capability_transport": {"const": "github_repository_actions_variable"},
             "permissions": {
               "const": [
-                "actions_variables:read",
-                "actions_variables:delete",
+                "repository_actions_variables:read",
+                "repository_actions_variables:delete",
                 "actions_runners:read"
               ]
             }
