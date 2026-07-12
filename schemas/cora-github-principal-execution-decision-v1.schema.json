@@ -100,7 +100,7 @@
         "git_blob": {"$ref": "#/$defs/gitBlob"},
         "sha256": {"$ref": "#/$defs/sha256"},
         "event": {"const": "workflow_dispatch"},
-        "ref": {"const": "refs/heads/main"},
+        "ref": {"const": "refs/heads/core-main"},
         "head_sha": {"$ref": "#/$defs/gitCommit"},
         "run_id": {"type": "integer", "minimum": 1},
         "run_attempt": {"const": 1},
