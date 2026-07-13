@@ -1,0 +1,148 @@
+{
+  "cora_refs": {
+    "decision_commit": "74a3a73062786fb559290c43ed6d802a2b3ba9af",
+    "repair_commit": "1f8fa86c5803d8e42bc1978b67fa006b1b21337d",
+    "request_commit": "7351bf4f5590fe25c0189139b4c44f5505833459",
+    "workflow_commit": "10b213dead5b7921987bbb7bca3f8df0ae168756"
+  },
+  "decision_id": "M1-DISTDET0-L3PAYLOAD0-EXEC0-r10-run-29286575003-grant-v1",
+  "eat_decision": {
+    "authority_level": "L3_candidate_payload_approval",
+    "commit": "74a3a73062786fb559290c43ed6d802a2b3ba9af",
+    "git_blob": "2c0582ca618ea48da846df72987124fac0c2b238",
+    "maturity_ceiling": "candidate_payload_loaded_for_validation",
+    "message_id": "2026-07-13-eat-cora-M1-DISTDET0-L3PAYLOAD0-EXEC0-r10-conditional-authorization",
+    "path": ".codex/exchange/eat/decisions/2026-07-13-eat-cora-m1-distdet0-l3payload0-exec0-r10-conditional-authorization.md",
+    "sha256": "65dee110b7e9c2f126b360de17405d47c0597deacbb242594898ed796c9af357"
+  },
+  "execution": {
+    "cleanup_authority": {
+      "capability_transport": "github_repository_actions_variable",
+      "permissions": [
+        "repository_actions_variables:read",
+        "repository_actions_variables:delete",
+        "actions_runners:read"
+      ],
+      "token_subject_sha256": "3431c2ea9b98a846f3c36e93cb734e16f7ac1e05fab4a68f1016ffd04ecf9d19"
+    },
+    "control": {
+      "identifier": "jdr-cora-principal/cora-principal-decisions:execution-decisions",
+      "kind": "principal_repository_execution_decision",
+      "principal_selection_required": true
+    },
+    "operator": {
+      "github_login": "jeffrinehart",
+      "github_user_id": 115682297
+    },
+    "outer_observer_envelope_sha256": "de6f8162443654efa299c4b63f46ecbec4161264b2ba679753d88d3a9d574ccb",
+    "runner": {
+      "jit_label": "eat-distdet-6985c95ec0ef5f46517a270ff56334e556479a962531e899a817fb05623746d4",
+      "name": "eat-distdet-runner-6985c95ec0ef5f46517a270ff56334e556479a962531e",
+      "repository_runner_id": 37,
+      "required_labels": [
+        "self-hosted",
+        "linux",
+        "x64",
+        "eat-preflight-v1",
+        "eat-distdet-6985c95ec0ef5f46517a270ff56334e556479a962531e899a817fb05623746d4"
+      ]
+    },
+    "runner_image": {
+      "identity": "sha256:5245b61b82e0d026c6f6f5bef416b801ccb088adf4dab48e94ba480802f42de3",
+      "provenance_sha256": "5163ee924ae3ca6cd934c409b48c990c7f0278dc69d9886d2fa8a501ddf95cef",
+      "sbom_sha256": "6d4ee347de765b3147a8add9324aa80ddf377d1a5bde3f1c6d2eb1ba31ab9819"
+    }
+  },
+  "issued_status": "granted",
+  "non_claims": [
+    "not an EAT decision or substitute for EAT authorization",
+    "not payload acceptance or candidate_payload_validated",
+    "not EAT hold clearance",
+    "not trusted evaluator configuration",
+    "not semantic subspace projector Gamma8 Hamiltonian or model-use authority",
+    "not scientific claim acceptance or PR47 unblock"
+  ],
+  "predecessor": null,
+  "principal": {
+    "github_login": "jdr-cora-principal",
+    "github_user_id": 302294632
+  },
+  "schema": "cora.github_principal_execution_decision.v1",
+  "scope": {
+    "authorization_id": "M1-DISTDET0-L3PAYLOAD0-EXEC0-r10-one-shot-v1",
+    "gate_id": "M1-DISTDET0-L3PAYLOAD0-EXEC0"
+  },
+  "subjects": {
+    "candidate": {
+      "commit": "7351bf4f5590fe25c0189139b4c44f5505833459",
+      "repository": "jeffrinehart/cora"
+    },
+    "consumer_contract": {
+      "commit": "1f8fa86c5803d8e42bc1978b67fa006b1b21337d",
+      "git_blob": "6724e9fe65e498f81d401d3e43516a9212602e74",
+      "path": ".codex/contracts/m1-distdet0-l3payload0-consumer-contract.v1.json",
+      "repository": "CORA",
+      "sha256": "118ee89544176322d29d7dd8c5789794fe777c878a134880d8176fdb6140fcd9"
+    },
+    "payload": {
+      "bundle_commit": "4cad6a43b528ae4fa2be75b89c402e7c02cfba41",
+      "evidence_commit": "57463e657c52cd1e3d79a888ee3dfdeb52e55a80",
+      "git_blob": "9292ec516f920fe03251ed7d45790836da4cc361",
+      "path": "data/audit/cora_bridge/golden/m1_distortion_detour_l3_payload_v1/m1_distortion_detour_reference_family.arrays.v1.npz",
+      "repository": "SymMatAlg",
+      "sha256": "767092a5206d75ece5e0b6a515749c6893e3cd53a28a260981d15a520696c989",
+      "source_commit": "43c972838d7ea0741a8c3ccb9fc970fa0fc04771"
+    },
+    "producer_profile": {
+      "evidence_commit": "57463e657c52cd1e3d79a888ee3dfdeb52e55a80",
+      "profile_commit": "f7d965ad94bae0474b5659ab8d3a22fcc0ca4f7e",
+      "profile_id": "m1_distortion_detour_l3_payload_registered_reproduction_v2",
+      "registry_git_blob": "697feb3d8a69e6ecbd2a8eb4b695c63837976e10",
+      "registry_path": "data/audit/cora_bridge/validator_profile_registry.v1.json",
+      "registry_sha256": "08b599f1c0fdf3966766196164dd3e6d92d8e1d5ee90f983b95c1a91283a7c64",
+      "repository": "SymMatAlg"
+    }
+  },
+  "supersedes": [],
+  "validity": {
+    "expires_at": "2026-07-13T22:18:41Z",
+    "issued_at": "2026-07-13T21:32:00Z",
+    "nonce": "261a186475a19bbd66c00980c88b0f72f1e84850b4d79198385381eac12b1cbf",
+    "use_count": 1
+  },
+  "workflow": {
+    "actor": {
+      "github_login": "jeffrinehart",
+      "github_user_id": 115682297
+    },
+    "dispatch_inputs": {
+      "authorization_id": "M1-DISTDET0-L3PAYLOAD0-EXEC0-r10-one-shot-v1",
+      "base_head": "",
+      "candidate_head": "7351bf4f5590fe25c0189139b4c44f5505833459",
+      "corpus_id": "EAT-RECONSIDERATION-PREFLIGHT0.ACTIVATION.v5",
+      "dispatch_nonce": "6985c95ec0ef5f46517a270ff56334e556479a962531e899a817fb05623746d4",
+      "evaluation_mode": "distdet_validator_execution",
+      "jit_runner_label": "eat-distdet-6985c95ec0ef5f46517a270ff56334e556479a962531e899a817fb05623746d4",
+      "manifest_path": "",
+      "projection_path": "",
+      "receipt_path": "",
+      "request_path": ".codex/exchange/eat/requests/2026-07-13-cora-eat-m1-distdet0-l3payload0-exec0-r10-conditional-authorization.md"
+    },
+    "event": "workflow_dispatch",
+    "git_blob": "6ca33b26647c3bf99804fb828211a628bd38282b",
+    "head_sha": "10b213dead5b7921987bbb7bca3f8df0ae168756",
+    "inputs_sha256": "160dcaee75a0ea17a1f02a14a71f128dd1d14433b05e3251bb850bfbd553bb59",
+    "path": ".github/workflows/eat-reconsideration-preflight.yml",
+    "queued_at": "2026-07-13T21:30:11Z",
+    "ref": "refs/heads/core-main",
+    "repository": {
+      "full_name": "jeffrinehart/cora",
+      "repository_id": 1267942116
+    },
+    "run_attempt": 1,
+    "run_id": 29286575003,
+    "run_name": "distdet-exec:6985c95ec0ef5f46517a270ff56334e556479a962531e899a817fb05623746d4:160dcaee75a0ea17a1f02a14a71f128dd1d14433b05e3251bb850bfbd553bb59",
+    "sha256": "60c23d68763680a5537855279755a642ad3807d2c70eef0e70543d8dff9246a3",
+    "workflow_id": 311851858
+  }
+}
