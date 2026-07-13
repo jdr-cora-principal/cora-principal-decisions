@@ -235,7 +235,7 @@
           "required": ["repository_runner_id", "name", "jit_label", "required_labels"],
           "properties": {
             "repository_runner_id": {"type": "integer", "minimum": 1},
-            "name": {"type": "string", "pattern": "^eat-distdet-runner-[0-9a-f]{64}$"},
+            "name": {"type": "string", "pattern": "^eat-distdet-runner-[0-9a-f]{45}$"},
             "jit_label": {"type": "string", "pattern": "^eat-distdet-[0-9a-f]{64}$"},
             "required_labels": {
               "type": "array",
